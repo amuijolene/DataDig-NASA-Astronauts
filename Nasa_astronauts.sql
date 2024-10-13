@@ -472,7 +472,7 @@ GROUP BY year
 HAVING COUNT( missions) BETWEEN 15 AND 23;
 
 -- Group astronauts by gender and military rank, counting astronauts per rank 
--- categorized into NASA's 5-star hierarchy system.
+-- categorized into NASA's 5-star military level system.
 
 SELECT 
 	   gender,
@@ -483,7 +483,7 @@ SELECT
 		WHEN Military_rank IN ("Lieutenant Colonel", "Colonel" ) THEN "3 stars"
         WHEN Military_rank IN ("Commander", "Major" ) THEN "2 stars"
         ELSE "Other"
-    END AS "NASA_hierachy"
+    END AS "military level"
 FROM astronauts
 WHERE military_rank is not null 
 GROUP BY gender, military_rank
